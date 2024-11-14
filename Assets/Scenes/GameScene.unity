@@ -2953,8 +2953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ab1a12ef2281148bff8d5bdc6adbda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_Question: []
+  questions: []
   m_BombTimer: {fileID: 102396444}
+  m_QuestionText: {fileID: 0}
+  m_AnswerInput: {fileID: 0}
 --- !u!1 &1860972919
 GameObject:
   m_ObjectHideFlags: 0

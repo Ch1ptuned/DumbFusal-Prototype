@@ -7,10 +7,11 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     public class Question
     {
-        public GameObject bombPrefab;  // Reference to the bomb prefab or UI element
-        public string questionText;    // The question text
-        public string correctAnswer;   // The correct answer
-        public int duration;           // Duration for this question
+        public GameObject bombPrefab;    // Reference to the bomb prefab or UI element
+        public string questionText;      // The question text
+        public string correctAnswer;     // The correct answer
+        public int duration;             // Duration for this question
+        public bool allowSecondAttempt;  // If true, player can have a second attempt
     }
 
     [SerializeField] private List<Question> questions;  // List of questions/bombs
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     private int timeRemaining;
     private bool isCountingDown = false;
     private int currentQuestionIndex = -1; // Track the current question
+    private bool usedSecondAttempt = false; // Track if the player has used their second attempt
 
     private void Start()
     {
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
 
         Question currentQuestion = questions[currentQuestionIndex];
         timeRemaining = currentQuestion.duration;
+        usedSecondAttempt = false;  // Reset second attempt status
         m_QuestionText.text = currentQuestion.questionText;
         m_AnswerInput.text = "";
         m_AnswerInput.ActivateInputField();
@@ -79,15 +82,23 @@ public class GameManager : MonoBehaviour
     public void SubmitAnswer()
     {
         Question currentQuestion = questions[currentQuestionIndex];
-        if (m_AnswerInput.text.Equals(currentQuestion.correctAnswer, System.StringComparison.OrdinalIgnoreCase))
+        bool isCorrect = m_AnswerInput.text.Equals(currentQuestion.correctAnswer, System.StringComparison.OrdinalIgnoreCase);
+
+        if (isCorrect)
         {
             DefuseBomb();
         }
+        else if (currentQuestion.allowSecondAttempt && !usedSecondAttempt)
+        {
+            Debug.Log("Incorrect answer. You have one more attempt.");
+            usedSecondAttempt = true;
+            m_AnswerInput.text = ""; // Clear input for the second attempt
+            m_AnswerInput.ActivateInputField();
+        }
         else
         {
-            Debug.Log("Incorrect answer, keep trying!");
-            m_AnswerInput.text = ""; // Clear input for another attempt
-            m_AnswerInput.ActivateInputField();
+            Debug.Log("Incorrect answer. No more attempts allowed.");
+            LoseGame();
         }
     }
 
@@ -102,6 +113,7 @@ public class GameManager : MonoBehaviour
     private void LoseGame()
     {
         Debug.Log("Boom! You lost!");
+        isCountingDown = false;
     }
 
     private void WinGame()
