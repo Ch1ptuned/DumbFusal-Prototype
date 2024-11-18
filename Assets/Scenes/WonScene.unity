@@ -865,11 +865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6380517138677461116, guid: d3483da88dfd1a24db885375eee77b27, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.28552818
+      value: 0.2660625
       objectReference: {fileID: 0}
     - target: {fileID: 6380517138677461116, guid: d3483da88dfd1a24db885375eee77b27, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278255433
+      value: 4278255428
       objectReference: {fileID: 0}
     - target: {fileID: 7025121858486664508, guid: d3483da88dfd1a24db885375eee77b27, type: 3}
       propertyPath: m_AnchorMax.y
