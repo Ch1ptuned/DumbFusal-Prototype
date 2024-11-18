@@ -30,6 +30,11 @@ public class GameSetup : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
     public void ResumeGame()
     {
         g_SettingsMenu.SetActive(false);
