@@ -9,17 +9,18 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     public class Question
     {
-        public GameObject bombPrefab;    // Reference to the bomb prefab or UI element
-        public string questionText;      // The question text
-        public List<string> answerOptions; // List of answer options (2 wrong, 1 correct)
-        public int correctAnswerIndex;    // Index of the correct answer in the options list
-        public int duration;             // Duration for this question
+        public GameObject bombPrefab;       // Reference to the bomb prefab or UI element
+        public string questionText;         // The question text
+        public List<string> answerOptions;  // List of answer options (4 options: 1 correct, 3 wrong)
+        public int correctAnswerIndex;      // Index of the correct answer in the options list
+        public int duration;                // Duration for this question
+        public List<Color> buttonColors;    // List of button colors (one for each button)
     }
 
     [SerializeField] private List<Question> questions;  // List of questions/bombs
-    [SerializeField] private TMP_Text m_BombTimer;
-    [SerializeField] private TMP_Text m_QuestionText;
-    [SerializeField] private Button[] answerButtons;    // Array of 3 buttons for answers
+    [SerializeField] private TMP_Text m_BombTimer;      // Timer text
+    [SerializeField] private TMP_Text m_QuestionText;   // Question text
+    [SerializeField] private Button[] answerButtons;    // Array of 4 buttons for answers
 
     private int timeRemaining;
     private bool isCountingDown = false;
@@ -48,11 +49,24 @@ public class GameManager : MonoBehaviour
         {
             if (i < currentQuestion.answerOptions.Count)
             {
-                answerButtons[i].gameObject.SetActive(true);
-                answerButtons[i].GetComponentInChildren<TMP_Text>().text = currentQuestion.answerOptions[i];
+                Button button = answerButtons[i];
+                button.gameObject.SetActive(true);
+                TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
+                buttonText.text = currentQuestion.answerOptions[i];
+
+                // Set button color
+                if (i < currentQuestion.buttonColors.Count)
+                {
+                    ColorBlock colors = button.colors;
+                    colors.normalColor = currentQuestion.buttonColors[i];
+                    colors.highlightedColor = currentQuestion.buttonColors[i] * 1.2f; // Slightly brighter on hover
+                    colors.pressedColor = currentQuestion.buttonColors[i] * 0.8f;     // Slightly darker on press
+                    button.colors = colors;
+                }
+
                 int buttonIndex = i; // Capture index for the listener
-                answerButtons[i].onClick.RemoveAllListeners(); // Remove previous listeners
-                answerButtons[i].onClick.AddListener(() => SubmitAnswer(buttonIndex));
+                button.onClick.RemoveAllListeners(); // Remove previous listeners
+                button.onClick.AddListener(() => SubmitAnswer(buttonIndex));
             }
             else
             {
