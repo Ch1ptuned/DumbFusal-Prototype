@@ -25,10 +25,12 @@ public class GameManager : MonoBehaviour
     private int timeRemaining;
     private bool isCountingDown = false;
     private int currentQuestionIndex = -1; // Track the current question
+    private AudioManager audioManager;
 
     private void Start()
     {
         StartNextQuestion();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void StartNextQuestion()
@@ -135,12 +137,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Boom! You lost!");
         isCountingDown = false;
         CancelInvoke("_tick");
+        audioManager.PlayDeathSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void WinGame()
     {
         Debug.Log("All bombs defused! You win!");
+        audioManager.PlayWinSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 }
