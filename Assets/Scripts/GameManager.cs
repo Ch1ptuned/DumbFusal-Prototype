@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
@@ -9,20 +10,19 @@ public class GameManager : MonoBehaviour
     {
         public GameObject bombPrefab;    // Reference to the bomb prefab or UI element
         public string questionText;      // The question text
-        public string correctAnswer;     // The correct answer
+        public List<string> answerOptions; // List of answer options (2 wrong, 1 correct)
+        public int correctAnswerIndex;    // Index of the correct answer in the options list
         public int duration;             // Duration for this question
-        public bool allowSecondAttempt;  // If true, player can have a second attempt
     }
 
     [SerializeField] private List<Question> questions;  // List of questions/bombs
     [SerializeField] private TMP_Text m_BombTimer;
     [SerializeField] private TMP_Text m_QuestionText;
-    [SerializeField] private TMP_InputField m_AnswerInput;
+    [SerializeField] private Button[] answerButtons;    // Array of 3 buttons for answers
 
     private int timeRemaining;
     private bool isCountingDown = false;
     private int currentQuestionIndex = -1; // Track the current question
-    private bool usedSecondAttempt = false; // Track if the player has used their second attempt
 
     private void Start()
     {
@@ -40,10 +40,24 @@ public class GameManager : MonoBehaviour
 
         Question currentQuestion = questions[currentQuestionIndex];
         timeRemaining = currentQuestion.duration;
-        usedSecondAttempt = false;  // Reset second attempt status
         m_QuestionText.text = currentQuestion.questionText;
-        m_AnswerInput.text = "";
-        m_AnswerInput.ActivateInputField();
+
+        // Set up answer buttons
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            if (i < currentQuestion.answerOptions.Count)
+            {
+                answerButtons[i].gameObject.SetActive(true);
+                answerButtons[i].GetComponentInChildren<TMP_Text>().text = currentQuestion.answerOptions[i];
+                int buttonIndex = i; // Capture index for the listener
+                answerButtons[i].onClick.RemoveAllListeners(); // Remove previous listeners
+                answerButtons[i].onClick.AddListener(() => SubmitAnswer(buttonIndex));
+            }
+            else
+            {
+                answerButtons[i].gameObject.SetActive(false); // Hide unused buttons
+            }
+        }
 
         UpdateUI();
         StartTimer();
@@ -79,25 +93,16 @@ public class GameManager : MonoBehaviour
         m_BombTimer.text = "Explodes in: " + timeRemaining.ToString();
     }
 
-    public void SubmitAnswer()
+    private void SubmitAnswer(int chosenIndex)
     {
         Question currentQuestion = questions[currentQuestionIndex];
-        bool isCorrect = m_AnswerInput.text.Equals(currentQuestion.correctAnswer, System.StringComparison.OrdinalIgnoreCase);
 
-        if (isCorrect)
+        if (chosenIndex == currentQuestion.correctAnswerIndex)
         {
             DefuseBomb();
         }
-        else if (currentQuestion.allowSecondAttempt && !usedSecondAttempt)
-        {
-            Debug.Log("Incorrect answer. You have one more attempt.");
-            usedSecondAttempt = true;
-            m_AnswerInput.text = ""; // Clear input for the second attempt
-            m_AnswerInput.ActivateInputField();
-        }
         else
         {
-            Debug.Log("Incorrect answer. No more attempts allowed.");
             LoseGame();
         }
     }
@@ -114,10 +119,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Boom! You lost!");
         isCountingDown = false;
+        CancelInvoke("_tick");
+        // Implement additional lose game logic here (e.g., restart or show a game over screen)
     }
 
     private void WinGame()
     {
         Debug.Log("All bombs defused! You win!");
+        // Implement win game logic here (e.g., display a victory screen)
     }
 }
