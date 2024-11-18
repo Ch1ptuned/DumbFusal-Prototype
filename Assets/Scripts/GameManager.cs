@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -120,12 +121,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("Boom! You lost!");
         isCountingDown = false;
         CancelInvoke("_tick");
-        // Implement additional lose game logic here (e.g., restart or show a game over screen)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void WinGame()
     {
         Debug.Log("All bombs defused! You win!");
-        // Implement win game logic here (e.g., display a victory screen)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 }
