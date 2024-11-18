@@ -137,7 +137,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Boom! You lost!");
         isCountingDown = false;
         CancelInvoke("_tick");
-        audioManager.PlayDeathSound();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
