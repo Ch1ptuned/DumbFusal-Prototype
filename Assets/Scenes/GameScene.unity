@@ -339,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 67205887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 695025780}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &67205887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -48.2}
+  m_AnchoredPosition: {x: 42, y: -48.2}
   m_SizeDelta: {x: 313.3, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &102396444
@@ -2263,8 +2275,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2292,7 +2304,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -199.24792, y: 0, z: -160.83875, w: -31.207458}
+  m_margin: {x: -225.95447, y: 0, z: -362.62158, w: -31.207458}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2322,7 +2334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 287.64}
+  m_AnchoredPosition: {x: -24, y: 287.64}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &629184567
@@ -2623,7 +2635,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 661274796}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 695025780}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &661274796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,6 +2706,79 @@ RectTransform:
   m_AnchoredPosition: {x: -471, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &695025778
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1251564563}
+    m_Modifications:
+    - target: {fileID: 6021911794608499943, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e76017dce0183a546907ea36a2938121, type: 3}
+--- !u!4 &695025779 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9041235703038311290, guid: e76017dce0183a546907ea36a2938121, type: 3}
+  m_PrefabInstance: {fileID: 695025778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &695025780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7564695218370827028, guid: e76017dce0183a546907ea36a2938121, type: 3}
+  m_PrefabInstance: {fileID: 695025778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae4ddf0df329174c88ab037554ed5c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &773746376
 GameObject:
   m_ObjectHideFlags: 0
@@ -3493,7 +3590,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1039856364}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 695025780}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1039856364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3796,6 +3905,7 @@ Transform:
   m_Children:
   - {fileID: 1673206184}
   - {fileID: 1864311104}
+  - {fileID: 695025779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524444388
@@ -4000,7 +4110,7 @@ MonoBehaviour:
     - U
     - W
     correctAnswerIndex: 2
-    duration: 12
+    duration: 9
     buttonColors:
     - {r: 1, g: 1, b: 1, a: 1}
     - {r: 1, g: 1, b: 1, a: 1}
@@ -4014,7 +4124,7 @@ MonoBehaviour:
     - Blue
     - Red
     correctAnswerIndex: 3
-    duration: 6
+    duration: 5
     buttonColors:
     - {r: 1, g: 1, b: 1, a: 1}
     - {r: 1, g: 1, b: 1, a: 1}
@@ -4028,7 +4138,7 @@ MonoBehaviour:
     - Red
     - Blue
     correctAnswerIndex: 3
-    duration: 7
+    duration: 5
     buttonColors: []
   - bombPrefab: {fileID: 149670773}
     questionText: What's 9 + 10
@@ -4038,7 +4148,7 @@ MonoBehaviour:
     - 20
     - 18
     correctAnswerIndex: 1
-    duration: 7
+    duration: 4
     buttonColors: []
   - bombPrefab: {fileID: 149670773}
     questionText: 'Click on Red '
@@ -4068,6 +4178,62 @@ MonoBehaviour:
     - {r: 0.15730685, g: 0.35901165, b: 0.9528302, a: 1}
     - {r: 0.9716981, g: 0.041251317, b: 0.84675133, a: 1}
     - {r: 0.9811321, g: 0.08996458, b: 0.06016379, a: 1}
+  - bombPrefab: {fileID: 149670773}
+    questionText: .sdrawkcab noitseQ sihT rewsnA
+    answerOptions:
+    - oN
+    - Sure!
+    - What?
+    - Ok
+    correctAnswerIndex: 0
+    duration: 10
+    buttonColors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+  - bombPrefab: {fileID: 149670773}
+    questionText: Which of these places does NOT exist?
+    answerOptions:
+    - Arsefacey
+    - Bitchfield
+    - Brown Willy
+    - Germansweek
+    correctAnswerIndex: 0
+    duration: 9
+    buttonColors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+  - bombPrefab: {fileID: 149670773}
+    questionText: Do you remember the answer to Question 2?
+    answerOptions:
+    - U
+    - Bitchfield
+    - 19
+    - Red
+    correctAnswerIndex: 3
+    duration: 7
+    buttonColors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+  - bombPrefab: {fileID: 149670773}
+    questionText: 'Simon Says: Pick Whatever'
+    answerOptions:
+    - Wharever
+    - Watever
+    - Whatever
+    - However
+    correctAnswerIndex: 2
+    duration: 7
+    buttonColors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
   m_BombTimer: {fileID: 102396444}
   m_QuestionText: {fileID: 603893165}
   answerButtons:
@@ -4369,7 +4535,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2069043222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 695025780}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2069043222
 MonoBehaviour:
   m_ObjectHideFlags: 0
